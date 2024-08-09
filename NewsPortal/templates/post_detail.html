@@ -1,0 +1,27 @@
+{% extends 'default.html'%}
+{% load custom_filters %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+{% block content %}
+    <h1>Новость</h1>
+{% if post %}
+    <table>
+        <tr>
+            <td><u>Заголовок</u></td>
+            <td><u>Содержание</u></td>
+            <td><u>Дата публикации</u></td>
+        </tr>
+        <tr>
+            <td>{{ post.title }}</td>
+            <td>{{ post.text|censor }}</td>
+            <td>{{ post.post_time|date:'d M Y' }}</td>
+            {% endif %}
+        </tr>
+    </table>
+
+{% endblock content%}
+</body>
